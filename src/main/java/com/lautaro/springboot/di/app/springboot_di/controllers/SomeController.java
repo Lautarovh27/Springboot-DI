@@ -13,7 +13,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -24,7 +24,7 @@ public class SomeController {
     private ProductService service = new ProductService();
     
     @GetMapping   
-    public List<Product> list(){
+    public List<Product> list(){    
         return service.findAll();
     }
 
