@@ -3,7 +3,7 @@ package com.lautaro.springboot.di.app.springboot_di.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import org.springframework.stereotype.Service;
 
@@ -16,9 +16,14 @@ import com.lautaro.springboot.di.app.springboot_di.repositories.ProductRepositor
 public class ProductServiceImpl implements ProductService {
 
     //Inyectamos el repositorio para poder usarlo en el servicio, nos provee el acceso a los datos
-    @Autowired
     private ProductRepository repository;
     
+
+
+    public ProductServiceImpl(ProductRepository repository) {
+        this.repository = repository;
+    }
+
     @Override
     public List<Product> findAll() {
         return repository.findAll().stream().map(p -> {
@@ -34,4 +39,5 @@ public class ProductServiceImpl implements ProductService {
     public Product findById(Long id) {
         return repository.findById(id); 
     }
+
 }
