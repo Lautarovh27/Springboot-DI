@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -20,8 +21,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RestController
 @RequestMapping("/api")
 public class SomeController {
-
-    private ProductServiceImpl service = new ProductServiceImpl();
+    
+    //Inyectamos el servicio para poder usarlo en el controlador, nos provee la logica de negocio
+    @Autowired
+    private ProductServiceImpl service;
     
     @GetMapping   
     public List<Product> list(){    
