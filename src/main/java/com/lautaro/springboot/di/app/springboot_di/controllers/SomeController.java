@@ -3,10 +3,10 @@ package com.lautaro.springboot.di.app.springboot_di.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lautaro.springboot.di.app.springboot_di.models.Product;
-import com.lautaro.springboot.di.app.springboot_di.services.ProductServiceImpl;
+import com.lautaro.springboot.di.app.springboot_di.services.ProductService;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RestController
 @RequestMapping("/api")
 public class SomeController {
-    
+
     //Inyectamos el servicio para poder usarlo en el controlador, nos provee la logica de negocio
     @Autowired
-    private ProductServiceImpl service;
+    private ProductService service;
     
     @GetMapping   
     public List<Product> list(){    
