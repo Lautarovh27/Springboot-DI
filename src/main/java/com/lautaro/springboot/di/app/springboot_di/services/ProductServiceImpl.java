@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
+import org.springframework.stereotype.Service;
 
 import com.lautaro.springboot.di.app.springboot_di.models.Product;
 import com.lautaro.springboot.di.app.springboot_di.repositories.ProductRepository;
 
 
 
-@Component
+@Service //Le indicamos a Spring que esta clase es un servicio, es decir, una clase encargada de contener la logica de negocio
 public class ProductServiceImpl implements ProductService {
 
     //Inyectamos el repositorio para poder usarlo en el servicio, nos provee el acceso a los datos

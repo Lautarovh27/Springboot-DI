@@ -3,11 +3,14 @@ package com.lautaro.springboot.di.app.springboot_di.repositories;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+
+import org.springframework.stereotype.Repository;
 
 import com.lautaro.springboot.di.app.springboot_di.models.Product;
 
-@Component
+//Esta clase es la encargada de acceder a los datos, en este caso es una lista de productos en memoria, 
+//pero podria ser una base de datos, un servicio externo, etc.
+@Repository //Le indicamos a Spring que esta clase es un repositorio, es decir, una clase encargada de acceder a los datos
 public class ProductRepositoryImpl implements ProductRepository {
 
     private List<Product> data;
