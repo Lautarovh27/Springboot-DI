@@ -8,13 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import com.lautaro.springboot.di.app.springboot_di.models.Product;
 
-//Le indicamos a Spring que esta clase es la implementacion principal del repositorio, es decir, la que se va a usar por defecto
+ //Le indicamos a Spring que esta clase es la implementacion principal del repositorio, es decir, la que se va a usar por defecto,
 //  en caso de haber varias implementaciones, se puede usar @Qualifier para especificar cual usar
+
 
 @Primary
 //Esta clase es la encargada de acceder a los datos, en este caso es una lista de productos en memoria, 
 //pero podria ser una base de datos, un servicio externo, etc.
-@Repository //Le indicamos a Spring que esta clase es un repositorio, es decir, una clase encargada de acceder a los datos
+@Repository("productList") //Le indicamos a Spring que esta clase es un repositorio, es decir, una clase encargada de acceder a los datos
 public class ProductRepositoryImpl implements ProductRepository {
 
     private List<Product> data;
