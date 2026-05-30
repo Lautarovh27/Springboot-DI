@@ -9,7 +9,6 @@ import com.lautaro.springboot.di.app.springboot_di.models.Product;
 
 @Repository("productList")
 public class ProductRepositoryImpl implements ProductRepository {
-
     private List<Product> data;
 
     public ProductRepositoryImpl() {

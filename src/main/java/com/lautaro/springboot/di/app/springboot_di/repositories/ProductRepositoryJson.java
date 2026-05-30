@@ -1,24 +1,25 @@
 package com.lautaro.springboot.di.app.springboot_di.repositories;
-
+import org.springframework.core.io.Resource;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.core.io.ClassPathResource;
+
+
+
 import com.lautaro.springboot.di.app.springboot_di.models.Product;
-import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
 
 public class ProductRepositoryJson implements ProductRepository {
 
     private List<Product> list;
 
-    public ProductRepositoryJson() {
-        ClassPathResource resource = new ClassPathResource("/product.json");
+    
+
+    public ProductRepositoryJson(Resource resource) {
+        
         ObjectMapper mapper = new ObjectMapper();
         try {
             list = Arrays.asList(mapper.readValue(resource.getFile(), Product[].class));
-        } catch (JacksonException e) {
-            e.printStackTrace();
         } catch (IOException e) {            
             e.printStackTrace();
         }
